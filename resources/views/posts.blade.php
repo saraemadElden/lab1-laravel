@@ -23,7 +23,7 @@
             @endforeach
         </div>
         <div class="text-center mt-4">
-            <a href="/iti" class="btn btn-secondary">Back to Home</a>
+            <a href="/" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 </body>

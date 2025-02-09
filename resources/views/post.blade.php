@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h1 class="card-title text-primary">{{ $post['title'] }}</h1>
                 <p class="card-text">{{ $post['body'] }}</p>
-                <a href="/posts" class="btn btn-outline-primary">Back to all posts</a>
+                <a href="{{route('posts.index')}}" class="btn btn-outline-primary">Back to all posts</a>
             </div>
         </div>
     </div>
