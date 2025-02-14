@@ -27,12 +27,12 @@ class PostController extends Controller
         'image' => $imagePath,
     ]);
 
-    return redirect()->back()->with('success', 'تمت إضافة المنشور بنجاح!');
+    return redirect()->back()->with('success', 'done');
 }
 
     public function index()
     {
-        $posts = Post::paginate(5); 
+        $posts = Post::paginate(10); 
         return view('posts.index', compact('posts'));
     }
 

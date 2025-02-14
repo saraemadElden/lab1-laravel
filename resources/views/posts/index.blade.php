@@ -4,31 +4,35 @@
 
 @section('content')
     <h1 class="mb-4 text-primary">All Posts</h1>
-
-    @foreach ($posts as $post)
-        <div class="card mb-3 shadow">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ asset($post->image) }}" class="img-fluid rounded-start" alt="Post Image">
-                </div>
-                <div class="">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">{{ Str::limit($post->description, 100) }}</p>
-                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read More</a>
-
-                        <form action="{{ route('posts.delete', $post->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($posts as $post)
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset($post->image) }}" 
+                             class="card-img-top" 
+                             alt="Post Image" 
+                             style="height: 200px; width: 100%; object-fit: contain; border-radius: 10px;">
+                             
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <p class="card-text flex-grow-1">{{ Str::limit($post->description, 100) }}</p>
+                            <div>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Read more</a>
+                                <form action="{{ route('posts.delete', $post->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-    @endforeach
 
-    <div class="d-flex justify-content-center">
-        <!-- {{ $posts->links() }} -->
+        <div class="d-flex justify-content-center mt-3">
+            <!-- {{ $posts->links() }} -->
+        </div>
     </div>
 @endsection
