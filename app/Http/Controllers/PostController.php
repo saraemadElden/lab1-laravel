@@ -48,5 +48,19 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
     }
+
+    public function create()
+      {
+    return view('posts.create'); 
+    }
+    
+    public function stored(Request $request) {
+    $title = $request->input('title'); 
+    $content = $request->input('content'); 
+    $image = $request->file('image'); 
+
+    dd($title, $image, $content); 
+}
+
 }
 

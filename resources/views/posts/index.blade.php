@@ -4,7 +4,10 @@
 
 @section('content')
     <h1 class="mb-4 text-primary">All Posts</h1>
-    <div class="container">
+
+        <a href="{{ route('posts.create') }}" class="btn btn-dark justify-content-center">Add new post</a>
+    
+        <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($posts as $post)
                 <div class="col">
@@ -32,7 +35,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-3">
-            <!-- {{ $posts->links() }} -->
+            {{ $posts->links() }}
         </div>
     </div>
 @endsection
